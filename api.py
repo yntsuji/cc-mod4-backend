@@ -20,3 +20,12 @@ def hello_world():
     print(body_data["data"])
     return {"message": "hello from api"}
 
+@app.route("/api", methods=["POST"])
+def sentiment():
+    body_data = request.get_json()
+
+    text = body_data["data"]
+
+    prediction = model.predict([text])
+
+    return {"sentiment": prediction[0]}
