@@ -30,4 +30,7 @@ def sentiment():
 
     prediction = model.predict([text])
 
+    print("INPUT:", text)
+    print("PREDICTION:", prediction)
+
     return {"sentiment": prediction[0]}
