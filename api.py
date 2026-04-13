@@ -1,8 +1,10 @@
 from flask import Flask, request
 import pickle
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 with open("sentiment_model_v1.pkl", "rb") as file:
@@ -27,8 +29,5 @@ def sentiment():
     text = body_data["data"]
 
     prediction = model.predict([text])
-
-    print("INPUT:", text)
-    print("OUTPUT:", prediction)
 
     return {"sentiment": prediction[0]}
