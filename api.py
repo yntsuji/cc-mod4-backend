@@ -15,12 +15,6 @@ with open("sentiment_model_v1.pkl", "rb") as file:
 def hello_world():
     return "<p>Hello, hi World hjkl 45! testi</p>"
 
-# @app.route("/api", methods=["POST"])
-# def sentiment():
-    body_data = request.get_json()
-    print("Body data:")
-    print(body_data["data"])
-    return {"message": "hello from api"}
 
 @app.route("/api", methods=["POST"])
 def sentiment():
